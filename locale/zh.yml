@@ -1,0 +1,121 @@
+gtdxyz-flarum-badges:
+  admin:
+    uncategorized: 未分类
+    new_badge: 新徽章
+    create_category: 创建分类
+    update_badge: 更新
+    update_category: 更新
+    edit_category: 编辑
+    nothing_here_yet: 未创建信息
+    show_badges_on_user_card: 在用户资料页面显示徽章
+    number_of_badges_on_user_card: 显示数量
+    number_of_badges_on_user_card_help: 显示在会员页面的数量
+
+    permissions:
+      badge_detail_users: 查看用户徽章详情
+      give_badge: 给予徽章
+      take_badge: 移除徽章
+      edit_own_card_badges: 编辑自己的徽章
+      edit_card_badges: 编辑用户的徽章
+
+    confirm_dialog:
+      title: 确认
+      no: No
+      yes: Yes
+
+    confirm_messages:
+      delete_badge: 是否删除徽章? 移除后所有用户的徽章将被移除并且不可恢复.
+      delete_category: 是否删除分类? 移除后当前分类下的徽章将被移动到 'uncategorized'.
+
+    badge:
+      name: 徽章名称
+      icon: 徽章图标
+      description: 描述
+      visible: 显示
+      visible_description: 设置显示或者隐藏徽章
+
+      is_image: 徽章图片
+      is_image_description: 图片代替显示
+
+      image: 图片链接
+      image_placeholder: 输入图片链接
+
+      icon_color: 图标颜色
+      background_color: 背景颜色
+      label_color: 文字颜色
+
+    badge_category:
+      name: 分类
+      description: 分类描述
+      blockview: Block-view
+      blockview_description: 板块显示或列表显示.
+      enabled: 启用
+      enabled_description: 启用显示分类。不启用的话分类下的所有图标都会隐藏.
+
+    auto_moderator:
+      not_installed:
+        title: Automatically reward users with badges
+        content: This extension offers more functionality when <a>Auto Moderator</a> is installed and activated. When you install this extension, users can be automatically rewarded with badges without the intervention of a community employee!
+        install: Install
+        dismiss: Do not show again
+
+      action_drivers:
+        badge_id: Badge ID
+        give_badge: Give badge
+        remove_badge: Remove badge
+
+      requirement_drivers:
+        has_badge: Has badge
+
+      metric_drivers:
+        badges_received: Badges received
+
+      badge_selector:
+        placeholder: Select a badge
+        loading_badges: Loading badges
+
+  forum:
+    badge_information: 徽章
+    all_badges: 查看所有徽章
+    all_users: 查看所有用户
+    give_badge: 奖励徽章
+    update_badge: 更新
+    select_badge: 选择徽章
+    user_has_badge: 用户已拥有此徽章.
+    user_no_badges: 用户暂时没有徽章.
+    hidden_badges: 徽章不显示.
+    no_received: 无用户获得徽章.
+    uncategorized: => gtdxyz-flarum-badges.admin.uncategorized
+    save_changes: 保存
+
+    badge:
+      badge: 徽章
+      badges: 徽章
+      name: 徽章名称
+      description: 描述
+      earning_reason: 获得原因
+      update_earning_reason: 更新原因
+      no_earning_reason: 无原因
+      earned_on: 徽章获得
+      category: 徽章分类
+      received_on: "获得于 {date}"
+      badge_details: 徽章详情
+      earned_count: "{count, plural, one {<b># 人</b> 获得} other {<b># 人</b> 获得}}"
+      earned_by_count: "{count, plural, one {共计获得 <b># 人</b>} other {共计获得 <b># 人</b>}}"
+      others_link: "+ {count} More"
+
+    badges_in_card:
+      title: 资料卡徽章
+      manage_badges: "管理徽章"
+      description: 选择显示在主页的徽章.
+      select_limit: "你可以选择 {limit, plural, one {<b>one badge</b>} other {<b># 徽章</b>}} 显示在主页."
+      hit_limit: "只剩下一个位置 <b> {limit, plural, one {<b>one badge</b>} other {<b># 徽章</b>}}</b> ."
+
+    moderation:
+      remove_badge: 移除徽章
+      remove_badge_confirm: 确认移除徽章?
+      give_badge: 奖励徽章
+
+    notification:
+      title: 获得一个新徽章
+      settings: 获得新徽章

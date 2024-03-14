@@ -1,0 +1,58 @@
+{
+    "name": "gtdxyz/flarum-ext-badges",
+    "description": "Adds user badges to your Flarum community",
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "V17 Development",
+            "email": "info@v17.dev"
+        },
+        {
+            "name": "DEV",
+            "email": "me@zaowan.xyz"
+        }
+    ],
+    "homepage": "https://zaowan.xyz",
+    "support": {
+        "forum": "https://zaowan.xyz",
+        "source": "https://github.com/daocatt/flarum-ext-badges"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gtdxyz\\UserBadges\\": "src/"
+        }
+    },
+    "require": {
+        "ext-json": "*",
+        "flarum/core": "^1.8.0"
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "User Badges",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-user-tag",
+                "backgroundColor": "#00ccb3",
+                "color": "#225650"
+            }
+        },
+        "flarum-cli": {
+            "modules": {
+                "admin": true,
+                "forum": true,
+                "js": true,
+                "jsCommon": true,
+                "css": true,
+                "gitConf": true,
+                "githubActions": true,
+                "prettier": true,
+                "typescript": false,
+                "bundlewatch": false,
+                "backendTesting": false,
+                "editorConfig": true,
+                "styleci": true
+            }
+        }
+    }
+}

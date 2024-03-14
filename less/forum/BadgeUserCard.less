@@ -1,0 +1,39 @@
+.UserCard-info {
+  
+  .item-badges {
+    display: block!important;
+    margin-top: 15px;
+    display:flex !important;
+    flex-direction: row;
+    justify-content: center;
+    
+    .UserBadge {
+      color: #232323;
+
+      &:hover {
+        border-color: #eee;
+      }
+    }
+
+    img.UserBadgeImage{
+      width: 36px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+@media (min-width: 767.98px){
+  .UserCard-info {
+    
+    .item-badges {
+      display:flex !important;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+}
