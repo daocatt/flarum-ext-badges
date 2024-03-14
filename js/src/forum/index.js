@@ -83,9 +83,7 @@ app.initializers.add('gtdxyz-flarum-badges', (app) => {
           name: 'badges',
           icon: 'fas fa-user-tag',
         },
-        [
-          app.translator.trans('gtdxyz-flarum-badges.forum.badge.badges')
-        ]
+        [app.translator.trans('gtdxyz-flarum-badges.forum.badge.badges')]
       ),
       15
     );

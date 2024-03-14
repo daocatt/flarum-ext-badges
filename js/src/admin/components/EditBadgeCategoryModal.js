@@ -57,11 +57,7 @@ export default class EditBadgeCategoryModal extends Modal {
       'name',
       <div className="Form-group">
         <label>{app.translator.trans('gtdxyz-flarum-badges.admin.badge_category.name')}:</label>
-        <input
-          className="FormControl"
-          placeholder={app.translator.trans('gtdxyz-flarum-badges.admin.badge_category.name')}
-          bidi={this.name}
-        />
+        <input className="FormControl" placeholder={app.translator.trans('gtdxyz-flarum-badges.admin.badge_category.name')} bidi={this.name} />
       </div>,
       50
     );

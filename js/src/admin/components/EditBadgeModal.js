@@ -114,11 +114,7 @@ export default class EditBadgeModal extends Modal {
         'image',
         <div className="Form-group">
           <label>{app.translator.trans('gtdxyz-flarum-badges.admin.badge.image')}:</label>
-          <input
-            className="FormControl"
-            placeholder={app.translator.trans('gtdxyz-flarum-badges.admin.badge.image_placeholder')}
-            bidi={this.image}
-          />
+          <input className="FormControl" placeholder={app.translator.trans('gtdxyz-flarum-badges.admin.badge.image_placeholder')} bidi={this.image} />
         </div>,
         50
       );
@@ -211,7 +207,7 @@ export default class EditBadgeModal extends Modal {
       .save({
         name: this.name(),
         icon: this.icon(),
-        image: this.isImage()?this.image():null,
+        image: this.isImage() ? this.image() : null,
         description: this.description(),
         isVisible: this.isVisible(),
         iconColor: this.iconColor(),

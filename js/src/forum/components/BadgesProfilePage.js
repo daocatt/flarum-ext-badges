@@ -17,8 +17,8 @@ export default class BadgesProfilePage extends UserPage {
     if (!this.user || this.loading) {
       return <LoadingIndicator size={46} />;
     }
-    
-    if(app.session.user){
+
+    if (app.session.user) {
       return UserBadgeList.component({
         user: this.user,
       });
@@ -29,7 +29,6 @@ export default class BadgesProfilePage extends UserPage {
         </div>
       );
     }
-    
   }
 
   show(user) {

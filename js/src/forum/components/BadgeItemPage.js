@@ -69,7 +69,6 @@ export default class BadgeItemPage extends Page {
                 </div>
               )}
 
-
               {app.session?.user?.isAdmin() && badge && app.forum.attribute('canViewDetailedBadgeUsers') && (
                 <h3>
                   {app.translator.trans('gtdxyz-flarum-badges.forum.badge.earned_by_count', {

@@ -83,7 +83,7 @@ export default class BadgeModal extends Modal {
 
     // Badge earning reason
     const earning_reason = false;
-    if(earning_reason && this.attrs.userBadgeData && (this.attrs.userBadgeData.description() || app.forum.attribute('canGiveBadge'))) {
+    if (earning_reason && this.attrs.userBadgeData && (this.attrs.userBadgeData.description() || app.forum.attribute('canGiveBadge'))) {
       items.add(
         'earning_reason',
         <div className={'BadgeModalListItem'}>
@@ -116,8 +116,6 @@ export default class BadgeModal extends Modal {
         </div>
       );
     }
-
-    
 
     // Badge category
     if (this.attrs.userBadgeData) {
