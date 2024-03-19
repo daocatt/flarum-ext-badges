@@ -5,10 +5,10 @@ import LoadingIndicator from 'flarum/components/LoadingIndicator';
 import avatar from 'flarum/helpers/avatar';
 import humanTime from 'flarum/helpers/humanTime';
 
-export default class BadgeUserList extends Component {
+export default class BadgeDetailContent extends Component {
   oninit(vnode) {
     super.oninit(vnode);
-
+    
     // Load articles
     this.attrs.state.refreshParams({
       filter: {
@@ -45,32 +45,31 @@ export default class BadgeUserList extends Component {
 
     // No items
     if (state.isEmpty()) {
-      return <div className={'BadgeUserList-empty'}>{app.translator.trans('gtdxyz-flarum-badges.forum.no_received')}</div>;
+      return <div className={'BadgeDetailContent-empty'}>{app.translator.trans('gtdxyz-flarum-badges.forum.no_received')}</div>;
     }
 
     return (
       <div>
-        <ul className={'BadgeUserList'}>
+        <ul className={'BadgeDetailContent'}>
           {state.getPages().map((pg) => {
             return pg.items.map((userBadge) => {
               return (
                 <li>
                   <Link
-                    href={app.route('user.badges', {
+                    href={app.route('user', {
                       username: userBadge.user().username(),
                     })}
-                    className={'BadgeUserList-user'}
+                    className={'BadgeDetailContent-user'}
                   >
                     {avatar(userBadge.user())}
 
-                    <div className={'BadgeUserList-userinfo'}>
+                    <div className={'BadgeDetailContentuserinfo'}>
                       <h4>{userBadge.user().displayName()}</h4>
-
-                      <p>
+                      {/* <p>
                         {app.translator.trans('gtdxyz-flarum-badges.forum.badge.received_on', {
                           date: humanTime(userBadge.assignedAt()),
                         })}
-                      </p>
+                      </p> */}
                     </div>
                   </Link>
                 </li>

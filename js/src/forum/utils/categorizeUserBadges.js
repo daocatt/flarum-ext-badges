@@ -1,8 +1,9 @@
-export default function categorizeUserBadges(user) {
+export default function categorizeUserBadges(badges) {
   const categories = {};
   const uncategorized = [];
+  const badgesList = badges || [];
 
-  user.userBadges().map((userBadge) => {
+  badgesList.map((userBadge) => {
     if (!userBadge) return null;
 
     // Categorized

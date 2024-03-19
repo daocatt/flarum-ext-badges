@@ -1,12 +1,12 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Listeners;
+namespace Gtdxyz\Badges\Listeners;
 
 use Flarum\Settings\SettingsRepositoryInterface;
 use Flarum\User\Event\Saving;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Gtdxyz\UserBadges\UserBadge\UserBadge;
+use Gtdxyz\Badges\Models\UserBadge;
 
 class UpdateDisplayBadges
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Badge;
+namespace Gtdxyz\Badges\Models;
 
 use Flarum\Database\AbstractModel;
-use Gtdxyz\UserBadges\BadgeCategory\BadgeCategory;
-use Gtdxyz\UserBadges\UserBadge\UserBadge;
+use Gtdxyz\Badges\BadgeCategory\BadgeCategory;
+use Gtdxyz\Badges\Models\UserBadge;
 
 class Badge extends AbstractModel
 {
@@ -26,6 +26,26 @@ class Badge extends AbstractModel
         $badge->label_color = $labelColor;
 
         return $badge;
+    }
+
+    protected $appends = [
+        'isVisible',
+        'backgroundColor',
+        'iconColor',
+        'labelColor',
+    ];
+
+    public function getBackgroundColorAttribute(){
+        return $this->attributes['background_color'];
+    }
+    public function getIsVisibleAttribute(){
+        return $this->attributes['is_visible'];
+    }
+    public function getIconColorAttribute(){
+        return $this->attributes['icon_color'];
+    }
+    public function getLabelColorAttribute(){
+        return $this->attributes['label_color'];
     }
 
     /**

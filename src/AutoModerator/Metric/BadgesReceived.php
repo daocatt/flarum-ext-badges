@@ -1,6 +1,6 @@
 <?php
 
-namespace Gtdxyz\UserBadges\AutoModerator\Metric;
+namespace Gtdxyz\Badges\AutoModerator\Metric;
 
 use Askvortsov\AutoModerator\Metric\MetricDriverInterface;
 use Flarum\User\User;

@@ -1,3 +1,4 @@
+import app from 'flarum/forum/app';
 import { extend } from 'flarum/extend';
 import Model from 'flarum/Model';
 import User from 'flarum/models/User';
@@ -8,53 +9,57 @@ import Button from 'flarum/components/Button';
 import Badge from '../common/models/Badge';
 import BadgeCategory from '../common/models/BadgeCategory';
 import UserBadge from '../common/models/UserBadge';
-import BadgesProfilePage from './components/BadgesProfilePage';
-import BadgesOverviewPage from './components/BadgesOverviewPage';
-import BadgeItemPage from './components/BadgeItemPage';
+import UserBadgesPage from './components/UserBadgesPage';
+import BadgesPage from './components/BadgesPage';
+import BadgeDetailPage from './components/BadgeDetailPage';
 import GiveBadgeModal from './components/GiveBadgeModal';
 import addSidebarNav from './addSidebarNav';
-import UserBadgeListState from './states/UserBadgeListState';
+import BadgeUsersState from './states/BadgeUsersState';
 import BadgeReceivedNotification from './notification/BadgeReceivedNotification';
 import NotificationGrid from 'flarum/forum/components/NotificationGrid';
-import addBadgeListUserCard from './addBadgeListUserCard';
+import addBadgesToUserCard from './addBadgesToUserCard';
 import DiscussionListState from 'flarum/forum/states/DiscussionListState';
+import UserBadgesState from "./states/UserBadgesState";
 
-app.initializers.add('gtdxyz-flarum-badges', (app) => {
+app.initializers.add('gtdxyz-flarum-badges', () => {
   app.store.models.badges = Badge;
   app.store.models.badgeCategories = BadgeCategory;
+  
   app.store.models.userBadges = UserBadge;
+  // User.prototype.userBadges = Model.hasMany('userBadges');
 
-  User.prototype.userBadges = Model.hasMany('userBadges');
-  User.prototype.userPrimaryBadge = Model.hasOne('userPrimaryBadge');
+  // User.prototype.userPrimaryBadge = Model.hasOne('userPrimaryBadge');
+
+  app.userBadges = new UserBadgesState(app);
 
   // Add user badges to the user profile
   app.routes['user.badges'] = {
     path: '/u/:username/badges',
-    component: BadgesProfilePage,
+    component: UserBadgesPage,
   };
 
   // Badges overview page
   app.routes.badges = {
     path: '/badges',
-    component: BadgesOverviewPage,
+    component: BadgesPage,
   };
 
   // Future
   // // Badges overview page
   // app.routes["badges.category"] = {
   //   path: "/badges/category/:id",
-  //   component: BadgesOverviewPage,
+  //   component: BadgesPage,
   // };
 
-  // Badge item page
-  app.routes['badges.item'] = {
+  // Badge detail page
+  app.routes['badges.detail'] = {
     path: '/badges/:id',
-    component: BadgeItemPage,
+    component: BadgeDetailPage,
   };
 
   addSidebarNav();
 
-  app.userBadgeListState = new UserBadgeListState({});
+  app.badgeUserListState = new BadgeUsersState({});
 
   // Badge received notification
   app.notificationComponents.badgeReceived = BadgeReceivedNotification;
@@ -108,13 +113,15 @@ app.initializers.add('gtdxyz-flarum-badges', (app) => {
     }
   });
 
-  addBadgeListUserCard();
+  addBadgesToUserCard();
 
-  extend(DiscussionListState.prototype, 'requestParams', function (params) {
-    if (typeof params.include === 'string') {
-      params.include = [params.include];
-    } else {
-      params.include?.push('user.userBadges', 'user.userBadges.badge');
-    }
-  });
+
+  // For what???
+  // extend(DiscussionListState.prototype, 'requestParams', function (params) {
+  //   if (typeof params.include === 'string') {
+  //     params.include = [params.include];
+  //   } else {
+  //     params.include?.push('user.userBadges', 'user.userBadges.badge');
+  //   }
+  // });
 });

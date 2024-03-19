@@ -1,6 +1,6 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Badge;
+namespace Gtdxyz\Badges\Badge;
 
 use Flarum\Foundation\AbstractValidator;
 

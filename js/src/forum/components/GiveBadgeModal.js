@@ -24,6 +24,8 @@ export default class GiveBadgeModal extends Modal {
     // Earning reason
     this.description = Stream(this.badge.description());
 
+    app.userBadges.load(this.user.attribute('username'));
+
     // List of available bagges
     this.categories = {};
 
@@ -151,9 +153,9 @@ export default class GiveBadgeModal extends Modal {
     items.add(
       'badge_description',
       <div className={'BadgeModalListItem'}>
-        <p>
+        {/* <p>
           <b>{app.translator.trans('gtdxyz-flarum-badges.forum.badge.description')}:</b>
-        </p>
+        </p> */}
         <p>{this.selectedBadge ? this.selectedBadge.description() : app.translator.trans('gtdxyz-flarum-badges.forum.select_badge')}</p>
       </div>,
       30
@@ -181,7 +183,9 @@ export default class GiveBadgeModal extends Modal {
   checkUserHasBadge(badge) {
     let foundBadge = false;
 
-    this.user.userBadges().map((userBadge) => {
+    let currentBadges = app.userBadges.cache || [];
+
+    currentBadges.map((userBadge) => {
       if (userBadge.badge() == badge) {
         foundBadge = true;
       }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Api\Serializer;
+namespace Gtdxyz\Badges\Api\Serializer;
 
 use Flarum\Api\Serializer\AbstractSerializer;
 use Flarum\Api\Serializer\UserSerializer;

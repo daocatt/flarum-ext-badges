@@ -101,11 +101,11 @@ gtdxyz-flarum-badges:
       received_on: "获得于 {date}"
       badge_details: 徽章详情
       earned_count: "{count, plural, one {<b># 人</b> 获得} other {<b># 人</b> 获得}}"
-      earned_by_count: "{count, plural, one {共计获得 <b># 人</b>} other {共计获得 <b># 人</b>}}"
+      earned_by_count: "{count, plural, one {共计 <b># 人</b> 获得} other {共计 <b># 人</b> 获得}}"
       others_link: "+ {count} More"
 
     badges_in_card:
-      title: 资料卡徽章
+      title: 徽章
       manage_badges: "管理徽章"
       description: 选择显示在主页的徽章.
       select_limit: "你可以选择 {limit, plural, one {<b>one badge</b>} other {<b># 徽章</b>}} 显示在主页."

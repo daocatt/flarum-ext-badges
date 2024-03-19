@@ -17,7 +17,7 @@ export default class SettingsPage extends ExtensionPage {
     this.updating = false;
     this.forcedRefreshKey = 0;
 
-    app.store.find('badge_categories').then(() => {
+    app.store.find('badge-categories').then(() => {
       app.store.find('badges').then(() => {
         this.loading = false;
 
@@ -203,8 +203,6 @@ export default class SettingsPage extends ExtensionPage {
     const newPosition = action === 'up' ? category.order() - 1 : category.order() + 1;
     const order = [];
 
-    console.log(category.id(), action, newPosition);
-
     // Bring to top
     if (newPosition <= 0) {
       order.push(category.id());
@@ -235,7 +233,7 @@ export default class SettingsPage extends ExtensionPage {
     // Save list
     app
       .request({
-        url: app.forum.attribute('apiUrl') + '/badge_categories/order',
+        url: app.forum.attribute('apiUrl') + '/badge-categories/order',
         method: 'POST',
         body: { order },
       })

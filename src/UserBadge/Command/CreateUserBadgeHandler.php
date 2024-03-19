@@ -1,16 +1,16 @@
 <?php
 
-namespace Gtdxyz\UserBadges\UserBadge\Command;
+namespace Gtdxyz\Badges\UserBadge\Command;
 
 use Flarum\Foundation\ValidationException;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Flarum\Notification\NotificationSyncer;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Gtdxyz\UserBadges\Badge\Badge;
-use Gtdxyz\UserBadges\UserBadge\UserBadge;
+use Gtdxyz\Badges\Models\Badge;
+use Gtdxyz\Badges\Models\UserBadge;
 use Flarum\User\User;
 use Illuminate\Support\Arr;
-use Gtdxyz\UserBadges\Notification\BadgeReceivedBlueprint;
+use Gtdxyz\Badges\Notification\BadgeReceivedBlueprint;
 
 class CreateUserBadgeHandler
 {

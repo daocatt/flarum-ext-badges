@@ -3,11 +3,11 @@ import IndexPage from 'flarum/components/IndexPage';
 import listItems from 'flarum/common/helpers/listItems';
 import LoadingIndicator from 'flarum/components/LoadingIndicator';
 import LinkButton from 'flarum/components/LinkButton';
-import BadgeUserList from './BadgeUserList';
+import BadgeDetailContent from './BadgeDetailContent';
 
 import UserBadge from '../../common/components/UserBadge';
 
-export default class BadgeItemPage extends Page {
+export default class BadgeDetailPage extends Page {
   oninit(vnode) {
     super.oninit(vnode);
 
@@ -22,14 +22,14 @@ export default class BadgeItemPage extends Page {
       app.store.find(`badges/${m.route.param('id')}`).then((badge) => {
         this.loading = false;
 
-        app.history.push('badgeItemPage', badge.name());
+        app.history.push('badgeDetailPage', badge.name());
 
         this.setTitle(badge);
 
         m.redraw();
       });
     } else {
-      app.history.push('badgeItemPage', found.name());
+      app.history.push('badgeDetailPage', found.name());
 
       this.setTitle(found);
     }
@@ -44,7 +44,7 @@ export default class BadgeItemPage extends Page {
 
     return (
       <div className="IndexPage">
-        {IndexPage.prototype.hero()}
+        {/* {IndexPage.prototype.hero()} */}
 
         <div className="container">
           <div className="sideNavContainer">
@@ -52,24 +52,24 @@ export default class BadgeItemPage extends Page {
               <ul>{listItems(IndexPage.prototype.sidebarItems().toArray())}</ul>
             </nav>
             <div className="IndexPage-results sideNavOffset">
-              <LinkButton href={app.route('badges')} icon={'fas fa-chevron-left'} className={'Button BadgesOverviewButton'}>
+              {/* <LinkButton href={app.route('badges')} icon={'fas fa-chevron-left'} className={'Button BadgesOverviewButton'}>
                 {app.translator.trans('gtdxyz-flarum-badges.forum.badge.badges')}
-              </LinkButton>
+              </LinkButton> */}
 
               {this.loading && <LoadingIndicator size={'large'} />}
 
               {!this.loading && (
-                <div className={'BadgeUserListInfo'}>
+                <div className={'BadgeDetailContent-Info'}>
                   <UserBadge badge={badge} tooltip={false} />
 
-                  <div className={'BadgeUserListInfo-meta'}>
+                  <div className={'BadgeDetailContent-Info-meta'}>
                     <h3>{badge.name()}</h3>
                     <p>{badge.description()}</p>
                   </div>
                 </div>
               )}
 
-              {app.session?.user?.isAdmin() && badge && app.forum.attribute('canViewDetailedBadgeUsers') && (
+              {badge && app.forum.attribute('canViewDetailedBadgeUsers') && (
                 <h3>
                   {app.translator.trans('gtdxyz-flarum-badges.forum.badge.earned_by_count', {
                     count: badge.earnedAmount(),
@@ -77,8 +77,8 @@ export default class BadgeItemPage extends Page {
                 </h3>
               )}
 
-              {app.session?.user?.isAdmin() && !this.loading && app.forum.attribute('canViewDetailedBadgeUsers') && (
-                <BadgeUserList state={app.userBadgeListState} badgeId={badge.id()} />
+              {!this.loading && app.forum.attribute('canViewDetailedBadgeUsers') && (
+                <BadgeDetailContent state={app.badgeUserListState} badgeId={badge.id()} />
               )}
             </div>
           </div>

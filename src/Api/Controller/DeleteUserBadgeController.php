@@ -1,12 +1,12 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Api\Controller;
+namespace Gtdxyz\Badges\Api\Controller;
 
 use Flarum\Api\Controller\AbstractDeleteController;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
-use Gtdxyz\UserBadges\UserBadge\Command\DeleteUserBadge;
+use Gtdxyz\Badges\UserBadge\Command\DeleteUserBadge;
 
 class DeleteUserBadgeController extends AbstractDeleteController
 {

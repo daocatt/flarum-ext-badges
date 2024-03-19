@@ -146,20 +146,7 @@ export default class EditBadgeModal extends Modal {
         50
       );
 
-      items.add(
-        'background_color',
-        <div className="Form-group BadgeForm-split BadgeForm-ColorField">
-          <label>{app.translator.trans('gtdxyz-flarum-badges.admin.badge.background_color')}:</label>
-          <input className="FormControl" bidi={this.backgroundColor} placeholder="auto" />
-          <span
-            className={'BadgeForm-Chosen-Color'}
-            style={{
-              backgroundColor: this.backgroundColor(),
-            }}
-          />
-        </div>,
-        50
-      );
+      
 
       items.add(
         'label_color',
@@ -176,6 +163,21 @@ export default class EditBadgeModal extends Modal {
         50
       );
     }
+
+    items.add(
+      'background_color',
+      <div className={!this.isImage() ? ("Form-group BadgeForm-ColorField BadgeForm-split") : ("Form-group BadgeForm-ColorField")}>
+        <label>{app.translator.trans('gtdxyz-flarum-badges.admin.badge.background_color')}:</label>
+        <input className="FormControl" bidi={this.backgroundColor} placeholder="auto" />
+        <span
+          className={'BadgeForm-Chosen-Color'}
+          style={{
+            backgroundColor: this.backgroundColor(),
+          }}
+        />
+      </div>,
+      50
+    );
 
     // Enabled
     items.add(

@@ -1,6 +1,6 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Access;
+namespace Gtdxyz\Badges\Access;
 
 use Carbon\Carbon;
 use Flarum\User\Access\AbstractPolicy;

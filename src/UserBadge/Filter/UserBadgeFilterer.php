@@ -1,26 +1,34 @@
 <?php
 
-namespace Gtdxyz\UserBadges\UserBadge\Filter;
+namespace Gtdxyz\Badges\UserBadge\Filter;
 
 use Flarum\Filter\AbstractFilterer;
 use Flarum\User\User;
 use Illuminate\Database\Eloquent\Builder;
-use Gtdxyz\UserBadges\UserBadge\UserBadge;
-use Gtdxyz\UserBadges\UserBadge\UserBadgeRepository;
+use Gtdxyz\Badges\Models\UserBadgeRepository;
 
 class UserBadgeFilterer extends AbstractFilterer
 {
     /**
+     * @var UserBadgeRepository
+     */
+    protected $userBadges;
+    
+    /**
+     * @param UserBadgeRepository $userBadges
      * @param array $filters
      * @param array $filterMutators
      */
-    public function __construct(array $filters, array $filterMutators)
+    public function __construct(UserBadgeRepository $userBadges, array $filters, array $filterMutators)
     {
+        
         parent::__construct($filters, $filterMutators);
+
+        $this->userBadges = $userBadges;
     }
 
     protected function getQuery(User $actor): Builder
     {
-        return UserBadge::query();
+        return $this->userBadges->query()->select('badge_user.*');
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Gtdxyz\UserBadges\UserBadge\Command;
+namespace Gtdxyz\Badges\UserBadge\Command;
 
 use Flarum\Foundation\ValidationException;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Gtdxyz\UserBadges\UserBadge\UserBadge;
+use Gtdxyz\Badges\Models\UserBadge;
 use Illuminate\Support\Arr;
 
 class UpdateUserBadgeHandler

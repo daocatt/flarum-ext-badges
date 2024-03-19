@@ -1,9 +1,9 @@
 <?php
 
-namespace Gtdxyz\UserBadges\BadgeCategory\Command;
+namespace Gtdxyz\Badges\BadgeCategory\Command;
 
 use Flarum\Foundation\ValidationException;
-use Gtdxyz\UserBadges\BadgeCategory\BadgeCategory;
+use Gtdxyz\Badges\BadgeCategory\BadgeCategory;
 
 class DeleteBadgeCategoryHandler
 {

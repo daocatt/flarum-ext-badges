@@ -1,6 +1,5 @@
 import Model from 'flarum/Model';
 import mixin from 'flarum/utils/mixin';
-import BadgeModal from '../../forum/components/BadgeModal';
 
 export default class Badge extends mixin(Model, {
   name: Model.attribute('name'),

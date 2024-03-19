@@ -1,9 +1,9 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Notification;
+namespace Gtdxyz\Badges\Notification;
 
 use Flarum\Notification\Blueprint\BlueprintInterface;
-use Gtdxyz\UserBadges\UserBadge\UserBadge;
+use Gtdxyz\Badges\Models\UserBadge;
 
 class BadgeReceivedBlueprint implements BlueprintInterface
 {

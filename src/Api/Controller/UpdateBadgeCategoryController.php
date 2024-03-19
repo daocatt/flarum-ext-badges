@@ -1,14 +1,14 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Api\Controller;
+namespace Gtdxyz\Badges\Api\Controller;
 
 use Flarum\Api\Controller\AbstractShowController;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
 use Tobscure\JsonApi\Document;
-use Gtdxyz\UserBadges\BadgeCategory\Command\UpdateBadgeCategory;
-use Gtdxyz\UserBadges\Api\Serializer\BadgeCategorySerializer;
+use Gtdxyz\Badges\BadgeCategory\Command\UpdateBadgeCategory;
+use Gtdxyz\Badges\Api\Serializer\BadgeCategorySerializer;
 
 class UpdateBadgeCategoryController extends AbstractShowController
 {

@@ -1,15 +1,17 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Api\Controller;
+namespace Gtdxyz\Badges\Api\Controller;
 
 use Flarum\Api\Controller\AbstractListController;
 use Flarum\Http\RequestUtil;
 use Flarum\Http\UrlGenerator;
 use Flarum\Query\QueryCriteria;
 use Psr\Http\Message\ServerRequestInterface;
+use Illuminate\Support\Arr;
 use Tobscure\JsonApi\Document;
-use Gtdxyz\UserBadges\UserBadge\Filter\UserBadgeFilterer;
-use Gtdxyz\UserBadges\Api\Serializer\UserBadgeSerializer;
+use Gtdxyz\Badges\UserBadge\Filter\UserBadgeFilterer;
+use Gtdxyz\Badges\Api\Serializer\UserBadgeSerializer;
+use Gtdxyz\Badges\Models\UserBadgeRepository;
 
 class ListUserBadgesController extends AbstractListController
 {
@@ -21,7 +23,7 @@ class ListUserBadgesController extends AbstractListController
     /**
      * {@inheritdoc}
      */
-    public $include = ["badge", "user"];
+    public $include = ['badge', 'user', 'badge.category'];
 
     /**
      * {@inheritdoc}
@@ -31,7 +33,7 @@ class ListUserBadgesController extends AbstractListController
     /**
      * {@inheritdoc}
      */
-    public $limit = 18;
+    public $limit = 20;
 
     /**
      * @var UserBadgeFilterer
@@ -39,13 +41,19 @@ class ListUserBadgesController extends AbstractListController
     protected $filterer;
 
     /**
+     * @var UserBadgeRepository
+     */
+    protected $userBadges;
+
+    /**
      * @var UrlGenerator
      */
     protected $url;
 
-    public function __construct(UserBadgeFilterer $filterer, UrlGenerator $url)
+    public function __construct(UserBadgeFilterer $filterer, UserBadgeRepository $userBadges, UrlGenerator $url)
     {
         $this->filterer = $filterer;
+        $this->userBadges = $userBadges;
         $this->url = $url;
     }
 
@@ -57,16 +65,22 @@ class ListUserBadgesController extends AbstractListController
         $actor = RequestUtil::getActor($request);
 
         $actor->assertCan('badges.canViewDetailedUsers');
-
+        
+        //filter include user or badge or both
         $filters = $this->extractFilter($request);
         $limit = $this->extractLimit($request);
         $offset = $this->extractOffset($request);
         $include = $this->extractInclude($request);
+        
         $sort = $this->extractSort($request);
         $sortIsDefault = $this->sortIsDefault($request);
 
+        // if(!isset($filters['user'])){
+        //     return [];
+        // }
+        
         $criteria = new QueryCriteria($actor, $filters, $sort, $sortIsDefault);
-
+        
         $results = $this->filterer->filter($criteria, $limit, $offset);
 
         $document->addPaginationLinks(
@@ -78,7 +92,7 @@ class ListUserBadgesController extends AbstractListController
         );
 
         $results = $results->getResults();
-
+        
         $this->loadRelations($results, $include);
 
         return $results;

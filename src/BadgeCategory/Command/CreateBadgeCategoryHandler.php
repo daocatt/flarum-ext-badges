@@ -1,12 +1,12 @@
 <?php
 
-namespace Gtdxyz\UserBadges\BadgeCategory\Command;
+namespace Gtdxyz\Badges\BadgeCategory\Command;
 
 use Flarum\Foundation\ValidationException;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Gtdxyz\UserBadges\BadgeCategory\BadgeCategory;
-use Gtdxyz\UserBadges\BadgeCategory\BadgeCategoryValidator;
+use Gtdxyz\Badges\BadgeCategory\BadgeCategory;
+use Gtdxyz\Badges\BadgeCategory\BadgeCategoryValidator;
 use Illuminate\Support\Arr;
 
 class CreateBadgeCategoryHandler

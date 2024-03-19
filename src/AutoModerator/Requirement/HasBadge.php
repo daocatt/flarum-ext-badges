@@ -1,6 +1,6 @@
 <?php
 
-namespace Gtdxyz\UserBadges\AutoModerator\Requirement;
+namespace Gtdxyz\Badges\AutoModerator\Requirement;
 
 use Askvortsov\AutoModerator\Requirement\RequirementDriverInterface;
 use Flarum\User\User;

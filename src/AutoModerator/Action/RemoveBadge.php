@@ -1,11 +1,11 @@
 <?php
 
-namespace Gtdxyz\UserBadges\AutoModerator\Action;
+namespace Gtdxyz\Badges\AutoModerator\Action;
 
 use Askvortsov\AutoModerator\Action\ActionDriverInterface;
 use Illuminate\Contracts\Validation\Factory;
 use Illuminate\Contracts\Support\MessageBag;
-use Gtdxyz\UserBadges\UserBadge\UserBadge;
+use Gtdxyz\Badges\Models\UserBadge;
 use Flarum\User\User;
 
 class RemoveBadge implements ActionDriverInterface

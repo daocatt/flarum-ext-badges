@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "dependencies": {
         "flarum-webpack-config": "^2.0.0",
+        "less-loader": "^12.2.0",
         "webpack": "^5.65.0",
         "webpack-cli": "^4.9.1"
     },
@@ -10,6 +11,7 @@
         "@flarum/prettier-config": "^1.0.0",
         "flarum-webpack-config": "^2.0.0",
         "husky": "^4.2.5",
+        "less-loader": "^12.2.0",
         "prettier": "^2.5.1",
         "sortablejs": "^1.10.2",
         "webpack": "^5.65.0",

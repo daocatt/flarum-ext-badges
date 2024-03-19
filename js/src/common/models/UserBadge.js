@@ -10,6 +10,6 @@ export default class UserBadge extends mixin(Model, {
   inUserCard: Model.attribute('inUserCard'),
 }) {
   apiEndpoint() {
-    return '/user_badges' + (this.exists ? '/' + this.data.id : '');
+    return '/user-badges' + (this.exists ? '/' + this.data.id : '');
   }
 }

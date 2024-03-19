@@ -1,6 +1,6 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Controllers;
+namespace Gtdxyz\Badges\Controllers;
 
 // Flarum classes
 use Flarum\Frontend\Document;

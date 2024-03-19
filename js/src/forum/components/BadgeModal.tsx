@@ -1,9 +1,10 @@
 import Modal from 'flarum/components/Modal';
 import Button from 'flarum/components/Button';
-import fullTime from 'flarum/helpers/fullTime';
+import type dayjs from 'dayjs';
 import ItemList from 'flarum/utils/ItemList';
 import LinkButton from 'flarum/components/LinkButton';
 import GiveBadgeModal from './GiveBadgeModal';
+import hextorgba from '../utils/hextorgba';
 
 export default class BadgeModal extends Modal {
   oninit(vnode) {
@@ -13,11 +14,11 @@ export default class BadgeModal extends Modal {
   }
 
   className() {
-    return 'Modal--small';
+    return 'Modal--small BadgeModal BadgeModal-plain';
   }
 
   title() {
-    return app.translator.trans('gtdxyz-flarum-badges.forum.badge_information');
+    // return app.translator.trans('gtdxyz-flarum-badges.forum.badge_information');
   }
 
   content() {
@@ -26,7 +27,7 @@ export default class BadgeModal extends Modal {
         <div className="Modal-body">{this.data().toArray()}</div>
         <div className="Modal-footer">
           <LinkButton
-            href={app.route('badges.item', {
+            href={app.route('badges.detail', {
               id: this.attrs.badge.id(),
             })}
             className={'Button'}
@@ -58,28 +59,86 @@ export default class BadgeModal extends Modal {
 
   data() {
     const items = new ItemList();
+    const radials = hextorgba(this.attrs.badge.backgroundColor(), 0.7);
+    const radiale = hextorgba(this.attrs.badge.backgroundColor(), 1);
 
     // Badge name
     items.add(
       'name',
-      <div className={'BadgeModalListItem'}>
-        {/* <p>
-          <b>{app.translator.trans('gtdxyz-flarum-badges.forum.badge.name')}:</b>
-        </p> */}
-        <p>{this.attrs.badge.name()}</p>
+      <div
+        className={'BadgeModalListItem name'}
+        style={{
+          background: "radial-gradient("+radials+","+radiale+")"
+        }}
+      >
+        {this.attrs.badge.image() && (
+          <img src={this.attrs.badge.image()} className="icon" />
+        )}
       </div>
     );
 
     // Badge description
-    // items.add(
-    //   'description',
-    //   <div className={'BadgeModalListItem'}>
-    //     <p>
-    //       <b>{app.translator.trans('gtdxyz-flarum-badges.forum.badge.description')}:</b>
-    //     </p>
-    //     <p>{this.attrs.badge.description()}</p>
-    //   </div>
-    // );
+    items.add(
+      'description',
+      <div className={'BadgeModalListItem description'}>
+        <p className="name">{this.attrs.badge.name()}</p>
+        <p>{this.attrs.badge.description()}</p>
+      </div>
+    );
+
+    
+
+    // Badge category
+    if (this.attrs.userBadgeData) {
+      items.add(
+        'category',
+        <div className={'BadgeModalListItem category'}>
+          {/* <p>
+            <b>{app.translator.trans('gtdxyz-flarum-badges.forum.badge.category')}:</b>
+          </p> */}
+          <p>
+            {this.attrs.badge.category() && this.attrs.badge.category().name()}
+
+            {/* Uncategorized */}
+            {!this.attrs.badge.category() && app.translator.trans('gtdxyz-flarum-badges.forum.uncategorized')}
+            {/* <Link
+              href={app.route("badges.category", {
+                category: this.attrs.badge.category().id(),
+              })}
+            >
+              {app.translator.trans(
+                "gtdxyz-flarum-badges.forum.all_badges"
+              )}
+            </Link> */}
+          </p>
+        </div>
+      );
+    }
+
+    // Badge amount
+    // if (this.attrs.badge && this.attrs.badge.earnedAmount()) {
+    //   items.add(
+    //     'earned_amount',
+    //     <div className={'BadgeModalListItem'}>
+    //       <p>
+    //         {app.translator.trans('gtdxyz-flarum-badges.forum.badge.earned_count', {
+    //           count: this.attrs.badge.earnedAmount(),
+    //         })}
+    //       </p>
+    //     </div>
+    //   );
+    // }
+
+    // Badge earned on
+    if (this.attrs.userBadgeData) {
+      const earned_at = dayjs(this.attrs.userBadgeData.assignedAt()).format('YYYY-MM-DD');
+      items.add(
+        'earned_date',
+        <div className={'BadgeModalListItem earned-on'}>
+          <p>{earned_at}</p>
+        </div>
+      );
+    }
 
     // Badge earning reason
     const earning_reason = false;
@@ -113,60 +172,6 @@ export default class BadgeModal extends Modal {
               </a>
             )}
           </p>
-        </div>
-      );
-    }
-
-    // Badge category
-    if (this.attrs.userBadgeData) {
-      items.add(
-        'category',
-        <div className={'BadgeModalListItem'}>
-          {/* <p>
-            <b>{app.translator.trans('gtdxyz-flarum-badges.forum.badge.category')}:</b>
-          </p> */}
-          <p>
-            {this.attrs.badge.category() && this.attrs.badge.category().name()}
-
-            {/* Uncategorized */}
-            {!this.attrs.badge.category() && app.translator.trans('gtdxyz-flarum-badges.forum.uncategorized')}
-            {/* <Link
-              href={app.route("badges.category", {
-                category: this.attrs.badge.category().id(),
-              })}
-            >
-              {app.translator.trans(
-                "gtdxyz-flarum-badges.forum.all_badges"
-              )}
-            </Link> */}
-          </p>
-        </div>
-      );
-    }
-
-    // Badge category
-    // if (this.attrs.badge && this.attrs.badge.earnedAmount()) {
-    //   items.add(
-    //     'earned_amount',
-    //     <div className={'BadgeModalListItem'}>
-    //       <p>
-    //         {app.translator.trans('gtdxyz-flarum-badges.forum.badge.earned_count', {
-    //           count: this.attrs.badge.earnedAmount(),
-    //         })}
-    //       </p>
-    //     </div>
-    //   );
-    // }
-
-    // Badge earned on
-    if (this.attrs.userBadgeData) {
-      items.add(
-        'earned_date',
-        <div className={'BadgeModalListItem'}>
-          {/* <p>
-            <b>{app.translator.trans('gtdxyz-flarum-badges.forum.badge.earned_on')}:</b>
-          </p> */}
-          <p>{fullTime(this.attrs.userBadgeData.assignedAt())}</p>
         </div>
       );
     }

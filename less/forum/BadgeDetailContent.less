@@ -2,13 +2,14 @@
   margin-bottom: 10px;
 }
 
-.BadgeUserListInfo {
+.BadgeDetailContent-Info {
   background: @control-bg;
   color: @control-color;
   border-radius: @border-radius;
   padding: 20px;
   display: flex;
   margin-bottom: 20px;
+  align-items:center;
 
   i {
     margin-right: 25px;
@@ -19,7 +20,7 @@
     height:auto;
   }
 
-  .BadgeUserListInfo-meta {
+  .BadgeDetailContent-Info-meta {
     flex-grow: 1;
 
     h3 {
@@ -32,18 +33,20 @@
   }
 }
 
-.BadgeUserList {
+.BadgeDetailContent {
   @media screen and (min-width: 540px) {
     display: grid;
     grid-gap: 0;
     justify-content: space-between;
     grid-template-columns: repeat(auto-fill, ~"calc(100% / 2 - 10px)");
   }
-
-  @media screen and (min-width: 900px) {
-    grid-template-columns: repeat(auto-fill, ~"calc(100% / 3 - 10px)");
+  @media screen and (max-width: 768.9px) {
+    grid-template-columns: repeat(auto-fill, ~"calc(100% / 2 - 10px)");
   }
-
+  @media screen and (min-width: 769px) {
+    grid-template-columns: repeat(auto-fill, ~"calc(100% / 4 - 10px)");
+  }
+  
   list-style: none;
   margin: 0;
   padding: 0;
@@ -51,7 +54,7 @@
   li {
     margin: 10px 0;
 
-    .BadgeUserList-user {
+    .BadgeDetailContent-user {
       display: block;
       padding: 5px;
       border-radius: 50px;
@@ -69,7 +72,7 @@
         flex-shrink: 0;
       }
 
-      .BadgeUserList-userinfo {
+      .BadgeDetailContent-userinfo {
         flex-grow: 1;
 
         h4 {
@@ -87,6 +90,6 @@
   }
 }
 
-.BadgeUserList-empty {
+.BadgeDetailContent-empty {
   font-size: 15px;
 }

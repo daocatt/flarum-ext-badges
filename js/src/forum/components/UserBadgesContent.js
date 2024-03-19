@@ -3,15 +3,17 @@ import UserBadge from '../../common/components/UserBadge';
 import categorizeUserBadges from '../utils/categorizeUserBadges';
 import BadgeModal from './BadgeModal';
 
-export default class UserBadgeList extends Component {
+export default class UserBadgesContent extends Component {
   view() {
-    const categories = categorizeUserBadges(this.attrs.user);
+    const badgesList = app.userBadges.cache || [];
+    
+    const categories = categorizeUserBadges(badgesList);
 
     return (
       <div className="UserBadges">
         {categories.length === 0 && (
           <div className={'Placeholder'}>
-            <p>{app.translator.trans('v17development-flarum-badges.forum.user_no_badges')}</p>
+            <p>{app.translator.trans('gtdxyz-flarum-badges.forum.user_no_badges')}</p>
           </div>
         )}
 

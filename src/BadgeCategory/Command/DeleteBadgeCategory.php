@@ -1,6 +1,6 @@
 <?php
 
-namespace Gtdxyz\UserBadges\BadgeCategory\Command;
+namespace Gtdxyz\Badges\BadgeCategory\Command;
 
 use Flarum\User\User;
 

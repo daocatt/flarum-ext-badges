@@ -1,9 +1,9 @@
 <?php
 
-namespace Gtdxyz\UserBadges\BadgeCategory;
+namespace Gtdxyz\Badges\BadgeCategory;
 
 use Flarum\Database\AbstractModel;
-use Gtdxyz\UserBadges\Badge\Badge;
+use Gtdxyz\Badges\Models\Badge;
 
 class BadgeCategory extends AbstractModel
 {

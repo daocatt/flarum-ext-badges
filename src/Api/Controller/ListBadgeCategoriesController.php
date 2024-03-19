@@ -1,12 +1,12 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Api\Controller;
+namespace Gtdxyz\Badges\Api\Controller;
 
 use Flarum\Api\Controller\AbstractListController;
 use Psr\Http\Message\ServerRequestInterface;
 use Tobscure\JsonApi\Document;
-use Gtdxyz\UserBadges\Api\Serializer\BadgeCategorySerializer;
-use Gtdxyz\UserBadges\BadgeCategory\BadgeCategory;
+use Gtdxyz\Badges\Api\Serializer\BadgeCategorySerializer;
+use Gtdxyz\Badges\BadgeCategory\BadgeCategory;
 
 class ListBadgeCategoriesController extends AbstractListController
 {

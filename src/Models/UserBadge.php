@@ -1,10 +1,10 @@
 <?php
 
-namespace Gtdxyz\UserBadges\UserBadge;
+namespace Gtdxyz\Badges\Models;
 
 use Flarum\Database\AbstractModel;
 use Flarum\User\User;
-use Gtdxyz\UserBadges\Badge\Badge;
+use Gtdxyz\Badges\Models\Badge;
 
 class UserBadge extends AbstractModel
 {

@@ -15,7 +15,7 @@ export default class BlockListView extends Component {
         {badges.map((badge) => {
           return (
             <li>
-              <Link href={app.route('badges.item', { id: badge.id() })} className={'BadgeContainer'}>
+              <Link href={app.route('badges.detail', { id: badge.id() })} className={'BadgeContainer'}>
                 <div className={'BadgeContainerInfo'}>
                   <UserBadge badge={badge} tooltip={false} />
 

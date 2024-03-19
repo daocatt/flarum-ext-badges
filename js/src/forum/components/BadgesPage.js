@@ -2,10 +2,10 @@ import Page from 'flarum/components/Page';
 import IndexPage from 'flarum/components/IndexPage';
 import listItems from 'flarum/common/helpers/listItems';
 import LoadingIndicator from 'flarum/components/LoadingIndicator';
-import TableView from './BadgeCategoryList/TableView';
-import BlockListView from './BadgeCategoryList/BlockListView';
+import TableView from './View/TableView';
+import BlockListView from './View/BlockListView';
 
-export default class BadgesOverviewPage extends Page {
+export default class BadgesPage extends Page {
   oninit(vnode) {
     super.oninit(vnode);
 
@@ -13,14 +13,13 @@ export default class BadgesOverviewPage extends Page {
 
     this.loading = true;
 
-    app.history.push('badgeOverviewPage');
+    app.history.push('badges');
 
     app.setTitle(app.translator.trans('gtdxyz-flarum-badges.forum.badge.badges'));
 
     // Load badge categories
-    app.store.find('badge_categories').then(() => {
+    app.store.find('badge-categories').then(() => {
       this.loading = false;
-
       m.redraw();
     });
   }
@@ -30,7 +29,7 @@ export default class BadgesOverviewPage extends Page {
 
     return (
       <div className="IndexPage">
-        {IndexPage.prototype.hero()}
+        {/* {IndexPage.prototype.hero()} */}
 
         <div className="container">
           <div className="sideNavContainer">
@@ -45,18 +44,20 @@ export default class BadgesOverviewPage extends Page {
               {!this.loading &&
                 categories.map((category) => {
                   const badges = category.badges().sort((a, b) => a.order() - b.order());
-
-                  return (
-                    <div className={'BadgeCategory'}>
-                      <h3>{category.name()}</h3>
-                      {category.description() && <p>{category.description()}</p>}
-
-                      {category.isTable() && <TableView badges={badges} />}
-
-                      {!category.isTable() && <BlockListView badges={badges} />}
-                    </div>
-                  );
-                })}
+                  if(badges.length > 0){
+                    return (
+                      <div className={'BadgeCategory'}>
+                        <h3>{category.name()}</h3>
+                        {category.description() && <p>{category.description()}</p>}
+  
+                        {category.isTable() && <TableView badges={badges} />}
+  
+                        {!category.isTable() && <BlockListView badges={badges} />}
+                      </div>
+                    );
+                  }
+                })
+              }
             </div>
           </div>
         </div>

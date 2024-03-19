@@ -23,7 +23,7 @@ export default class TableView extends Component {
             return (
               <tr>
                 <td>
-                  <Link href={app.route('badges.item', { id: badge.id() })}>
+                  <Link href={app.route('badges.detail', { id: badge.id() })}>
                     <UserBadge badge={badge} tooltip={false} />
                   </Link>
                 </td>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Gtdxyz\UserBadges\UserBadge;
+namespace Gtdxyz\Badges\Models;
 
 use Flarum\User\User;
 use Illuminate\Database\Eloquent\Builder;

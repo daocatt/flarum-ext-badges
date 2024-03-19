@@ -1,14 +1,14 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Api\Controller;
+namespace Gtdxyz\Badges\Api\Controller;
 
 use Flarum\Api\Controller\AbstractCreateController;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
 use Tobscure\JsonApi\Document;
-use Gtdxyz\UserBadges\Badge\Command\CreateBadge;
-use Gtdxyz\UserBadges\Api\Serializer\BadgeSerializer;
+use Gtdxyz\Badges\Badge\Command\CreateBadge;
+use Gtdxyz\Badges\Api\Serializer\BadgeSerializer;
 
 class CreateBadgeController extends AbstractCreateController
 {

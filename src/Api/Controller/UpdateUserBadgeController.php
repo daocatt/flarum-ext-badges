@@ -1,14 +1,14 @@
 <?php
 
-namespace Gtdxyz\UserBadges\Api\Controller;
+namespace Gtdxyz\Badges\Api\Controller;
 
 use Flarum\Api\Controller\AbstractShowController;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Support\Arr;
 use Psr\Http\Message\ServerRequestInterface;
 use Tobscure\JsonApi\Document;
-use Gtdxyz\UserBadges\UserBadge\Command\UpdateUserBadge;
-use Gtdxyz\UserBadges\Api\Serializer\UserBadgeSerializer;
+use Gtdxyz\Badges\UserBadge\Command\UpdateUserBadge;
+use Gtdxyz\Badges\Api\Serializer\UserBadgeSerializer;
 
 class UpdateUserBadgeController extends AbstractShowController
 {
