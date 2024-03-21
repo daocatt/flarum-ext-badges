@@ -8,7 +8,6 @@ return [
         if (!$schema->hasTable('badges')) {
             $schema->create('badges', function (Blueprint $table) {
                 $table->increments('id');
-                $table->integer('badge_category_id')->unsigned()->nullable();
                 $table->string('name', 46);
                 $table->string('icon', 100)->nullable();
                 $table->string('icon_color', 50)->nullable();
@@ -20,8 +19,6 @@ return [
                 $table->integer('points')->default(0);
                 $table->boolean('is_visible')->default(1);
                 $table->dateTime('created_at');
-
-                $table->foreign("badge_category_id")->references('id')->on('badge_category')->onDelete('set null');
             });
         }
     },
