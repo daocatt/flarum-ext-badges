@@ -115,5 +115,4 @@ app.initializers.add('gtdxyz-flarum-badges', () => {
   });
 
   addBadgesToUserCard();
-  
 });
