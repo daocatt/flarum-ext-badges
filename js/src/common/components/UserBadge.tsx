@@ -1,6 +1,5 @@
 import Component from 'flarum/common/Component';
 import Tooltip from 'flarum/common/components/Tooltip';
-import BadgeModal from '../../forum/components/BadgeModal';
 
 export default class UserBadge extends Component {
   oninit(vnode) {

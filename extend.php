@@ -6,13 +6,12 @@ use Flarum\Extend;
 use Flarum\Api\Serializer\UserSerializer;
 use Flarum\Api\Serializer\ForumSerializer;
 use Flarum\User\User;
-use Flarum\Api\Controller as FlarumController;
-use Flarum\Api\Serializer\BasicUserSerializer;
-use Flarum\Api\Serializer\CurrentUserSerializer;
+// use Flarum\Api\Controller as FlarumController;
+// use Flarum\Api\Serializer\BasicUserSerializer;
+// use Flarum\Api\Serializer\CurrentUserSerializer;
 
 use Flarum\User\Event\Saving as UserSaving;
 use Gtdxyz\Badges\Listeners\UpdateDisplayBadges;
-use Gtdxyz\Badges\Models\UserBadge;
 use Gtdxyz\Badges\Notification\BadgeReceivedBlueprint;
 
 $extend = [

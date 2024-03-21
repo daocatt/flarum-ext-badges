@@ -11,6 +11,7 @@ export default function addBadgesToUserCard() {
   extend(UserCard.prototype, 'infoItems', function (items) {
     // Get user
     const user = this.attrs.user;
+    
 
     // Don't show badges
     if (!app.forum.attribute('showBadgesOnUserCard') || !user.attribute('badges')) return;
@@ -40,7 +41,7 @@ export default function addBadgesToUserCard() {
     });
 
     // Manage badges
-    if ((user.id() === app.session.user.id() && app.forum.attribute('editOwnUserCardBadges')) || app.forum.attribute('editUserCardBadges')) {
+    if ((app.session.user && user.id() === app.session.user.id() && app.forum.attribute('editOwnUserCardBadges')) || app.forum.attribute('editUserCardBadges')) {
       badges.push(
         <Tooltip text={app.translator.trans('gtdxyz-flarum-badges.forum.badges_in_card.manage_badges')}>
           <a

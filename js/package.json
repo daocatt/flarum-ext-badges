@@ -13,7 +13,7 @@
         "flarum-webpack-config": "^2.0.0",
         "husky": "^4.2.5",
         "prettier": "^3.0.3",
-        "sortablejs": "^1.10.2"
+        "sortablejs": "^1.15.2"
     },
     "scripts": {
         "dev": "webpack --mode development --watch",

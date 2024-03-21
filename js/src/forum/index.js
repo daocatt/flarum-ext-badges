@@ -18,7 +18,6 @@ import BadgeUsersState from './states/BadgeUsersState';
 import BadgeReceivedNotification from './notification/BadgeReceivedNotification';
 import NotificationGrid from 'flarum/forum/components/NotificationGrid';
 import addBadgesToUserCard from './addBadgesToUserCard';
-import DiscussionListState from 'flarum/forum/states/DiscussionListState';
 import UserBadgesState from './states/UserBadgesState';
 
 app.initializers.add('gtdxyz-flarum-badges', () => {

@@ -2,8 +2,8 @@ import Page from 'flarum/components/Page';
 import IndexPage from 'flarum/components/IndexPage';
 import listItems from 'flarum/common/helpers/listItems';
 import LoadingIndicator from 'flarum/components/LoadingIndicator';
-import TableView from './View/TableView';
-import BlockListView from './View/BlockListView';
+import TableView from './views/TableView';
+import BlockListView from './views/BlockListView';
 
 export default class BadgesPage extends Page {
   oninit(vnode) {
