@@ -115,13 +115,5 @@ app.initializers.add('gtdxyz-flarum-badges', () => {
   });
 
   addBadgesToUserCard();
-
-  // For what???
-  // extend(DiscussionListState.prototype, 'requestParams', function (params) {
-  //   if (typeof params.include === 'string') {
-  //     params.include = [params.include];
-  //   } else {
-  //     params.include?.push('user.userBadges', 'user.userBadges.badge');
-  //   }
-  // });
+  
 });
