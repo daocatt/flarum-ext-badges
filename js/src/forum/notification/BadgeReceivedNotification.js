@@ -16,7 +16,6 @@ export default class BadgeReceivedNotification extends Notification {
   }
 
   excerpt() {
-
     const subject = this.attrs.notification.subject();
 
     return (

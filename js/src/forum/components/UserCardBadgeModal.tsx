@@ -50,13 +50,15 @@ export default class UserCardBadgeModal extends Modal {
                   const that = this;
                   // this.badgeData.delete().then(() => this.hide());
 
-                  app.request({
-                    method: 'DELETE',
-                    url: app.forum.attribute('apiUrl') + '/user-badges/' + this.badgeData.id,
-                    body: {},
-                  }).then(() => {
-                    that.hide();
-                  });
+                  app
+                    .request({
+                      method: 'DELETE',
+                      url: app.forum.attribute('apiUrl') + '/user-badges/' + this.badgeData.id,
+                      body: {},
+                    })
+                    .then(() => {
+                      that.hide();
+                    });
                 }
               }}
               loading={this.loading}
@@ -86,7 +88,7 @@ export default class UserCardBadgeModal extends Modal {
         {this.badgeItem.image ? (
           <img src={this.badgeItem.image} className="icon" />
         ) : (
-          <i className={this.badgeItem.icon} style={'color:'+this.badgeItem.icon_color}></i>
+          <i className={this.badgeItem.icon} style={'color:' + this.badgeItem.icon_color}></i>
         )}
       </div>
     );

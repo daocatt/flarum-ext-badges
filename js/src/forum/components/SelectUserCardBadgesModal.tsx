@@ -132,7 +132,7 @@ export default class SelectUserCardBadgesModal extends Modal {
       .save({ userCardBadges: this.selectedBadges })
       .then(() => {
         // Update current user badges store
-        
+
         // this.attrs.user.attribute('badges').map((badgeItem) => {
         //   badgeItem.in_user_card = this.selectedBadges.indexOf(parseInt(badgeItem.id)) >= 0;
         // });

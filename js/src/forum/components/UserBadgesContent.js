@@ -27,20 +27,20 @@ export default class UserBadgesContent extends Component {
 
                 {category && category.description() && <p>{category.description()}</p>}
                 <div className="badgeList">
-                {badges
-                  .sort((a, b) => a.badge().order() - b.badge().order())
-                  .map((userBadge) => (
-                    <UserBadge
-                      badge={userBadge.badge()}
-                      onclick={() =>
-                        app.modal.show(BadgeModal, {
-                          badge: userBadge.badge(),
-                          userBadgeData: userBadge,
-                        })
-                      }
-                    />
-                  ))}
-                  </div>
+                  {badges
+                    .sort((a, b) => a.badge().order() - b.badge().order())
+                    .map((userBadge) => (
+                      <UserBadge
+                        badge={userBadge.badge()}
+                        onclick={() =>
+                          app.modal.show(BadgeModal, {
+                            badge: userBadge.badge(),
+                            userBadgeData: userBadge,
+                          })
+                        }
+                      />
+                    ))}
+                </div>
               </div>
             );
           })}

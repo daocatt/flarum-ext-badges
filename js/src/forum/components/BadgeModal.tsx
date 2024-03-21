@@ -71,13 +71,11 @@ export default class BadgeModal extends Modal {
           background: 'radial-gradient(' + radials + ',' + radiale + ')',
         }}
       >
-        
-        {this.attrs.badge.image()  ? (
-          <img src={this.attrs.badge.image() } className="icon" />
+        {this.attrs.badge.image() ? (
+          <img src={this.attrs.badge.image()} className="icon" />
         ) : (
-          <i className={this.attrs.badge.icon()} style={'color:'+this.attrs.badge.iconColor()}></i>
+          <i className={this.attrs.badge.icon()} style={'color:' + this.attrs.badge.iconColor()}></i>
         )}
-
       </div>
     );
 

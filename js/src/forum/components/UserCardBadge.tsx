@@ -2,8 +2,6 @@ import Component from 'flarum/common/Component';
 import Tooltip from 'flarum/common/components/Tooltip';
 
 export default class UserCardBadge extends Component {
-  
-
   view() {
     const item = this.attrs.badge;
     const tooltip = this.attrs.tooltip !== false;

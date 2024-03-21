@@ -22,7 +22,7 @@ export default function addBadgesToUserCard() {
     if (user.attribute('badges_count') <= 0) return;
 
     const limit = app.forum.attribute('numberOfBadgesOnUserCard');
-    
+
     const badges = [];
 
     visibleBadges.forEach((badgeItem, indx) => {
@@ -58,6 +58,5 @@ export default function addBadgesToUserCard() {
     }
 
     items.add('badges', badges);
-    
   });
 }
