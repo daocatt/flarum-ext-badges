@@ -7,7 +7,6 @@ import EditBadgeModal from './EditBadgeModal';
 import EditBadgeCategoryModal from './EditBadgeCategoryModal';
 import ConfirmModal from './ConfirmModal';
 
-
 export default class SettingsPage extends ExtensionPage {
   oninit(attrs) {
     super.oninit(attrs);
@@ -35,7 +34,6 @@ export default class SettingsPage extends ExtensionPage {
     return (
       <div className="ExtensionPage-settings FlarumBadgesPage">
         <div className="container">
-
           <div className="FlarumBadgePageButtons">
             <Button
               className={'Button'}
