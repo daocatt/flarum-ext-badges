@@ -31,7 +31,7 @@ class BadgesAttributes
         $number_of_badges_on_user_card = $this->settings->get('gtdxyz-badges.number_of_badges_on_user_card', 3);
         if(!$show_badges_on_user_card)
         {
-            return;
+            return [];
         }
         
         $attributes = [];
