@@ -76,7 +76,6 @@ $extend = [
     (new Extend\ApiSerializer(UserSerializer::class))
         ->attributes(Attributes\BadgesAttributes::class),
 
-
     (new Extend\Filter(\Gtdxyz\Badges\UserBadge\Filter\UserBadgeFilterer::class))
         ->addFilter(\Gtdxyz\Badges\UserBadge\Filter\UserFilter::class)
         ->addFilter(\Gtdxyz\Badges\UserBadge\Filter\BadgeFilter::class),

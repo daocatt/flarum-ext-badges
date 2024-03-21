@@ -58,12 +58,4 @@ app.initializers.add('gtdxyz-badges', () => {
       'moderate',
       90
     );
-
-  // Auto moderation
-  // if (app.autoModeratorForms) {
-  //   app.autoModeratorForms.action.give_badge = BadgeActionDriverSettings;
-  //   app.autoModeratorForms.action.remove_badge = BadgeActionDriverSettings;
-
-  //   app.autoModeratorForms.requirement.has_badge = BadgeActionDriverSettings;
-  // }
 });

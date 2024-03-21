@@ -1,7 +1,6 @@
 import app from 'flarum/forum/app';
 import { extend } from 'flarum/common/extend';
 import UserCard from 'flarum/forum/components/UserCard';
-import Link from 'flarum/common/components/Link';
 import UserCardBadge from './components/UserCardBadge';
 import UserCardBadgeModal from './components/UserCardBadgeModal';
 import SelectUserCardBadgesModal from './components/SelectUserCardBadgesModal';

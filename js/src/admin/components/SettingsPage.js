@@ -6,7 +6,7 @@ import Button from 'flarum/components/Button';
 import EditBadgeModal from './EditBadgeModal';
 import EditBadgeCategoryModal from './EditBadgeCategoryModal';
 import ConfirmModal from './ConfirmModal';
-import InstallAutoModerationMessage from './InstallAutoModerationMessage';
+
 
 export default class SettingsPage extends ExtensionPage {
   oninit(attrs) {
@@ -35,7 +35,6 @@ export default class SettingsPage extends ExtensionPage {
     return (
       <div className="ExtensionPage-settings FlarumBadgesPage">
         <div className="container">
-          {/* {app.data.settings.extensions_enabled.indexOf('askvortsov-auto-moderator') === -1 && <InstallAutoModerationMessage />} */}
 
           <div className="FlarumBadgePageButtons">
             <Button
