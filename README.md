@@ -24,38 +24,32 @@ composer update gtdxyz/flarum-ext-badges
 - User badges page
 - Public badge list page
 - `Received new badge` notification
-- Fully integrated with Askvortsov's [Auto Moderator](https://discuss.flarum.org/d/27306)
-  - Adds `Badges received` metric
-  - Adds `Give badge` action
-  - Adds `Remove badge` action
-  - Adds `Has badge` requirement
 
 ## To-do:
 - User primary badge (next to name)
-- Image badges
-- Introduce 'relevant tag' badges (karma badges?): Automatic selecting 'primary' badges based on tags of a discussion
+- Show Badge in dicussion page
+- integrate with gtdxyz/flarum-ext-money-plus, auto give badge when meet money
+- Animation badge
 
 
 ## 🖼️ Screenshots
 
 ### User Badges list
-![User Badges list](https://i.imgur.com/yi48Mbw.png)
-
-## User badge notifications
-![User badge notifications](https://i.imgur.com/0aVQ0LB.png)
+![User Badges list](https://i.imgur.com/7JMvVlL.png)
 
 ## Public badges overview 
-![Public badges overview](https://i.imgur.com/r6lNDRf.png)
+![Public badges overview](https://i.imgur.com/buxJZl9.png)
 
 ## Public badge detail page
-![Public badge detail page](https://i.imgur.com/r1Vqej9.png)
+![Public badge detail page](https://i.imgur.com/dIWfUgK.png)
+
+![Public badge detail page](https://i.imgur.com/qt188VF.png)
 
 ### Admin badge management
-![Admin badge management](https://i.imgur.com/bji13xf.png)
+![Admin badge management](https://i.imgur.com/4ODDm4f.png)
 
 ### Managing badges
-![Admin badge management](https://i.imgur.com/jfZ6uSL.png)
+![Admin badge management](https://i.imgur.com/B9GOEhm.png)
 
-### User badge info
-Admin rights & public info
-![Admin rights & public info](https://i.imgur.com/XVKIZje.png)
+![Admin badge management](https://i.imgur.com/2BSNW35.png)
+
