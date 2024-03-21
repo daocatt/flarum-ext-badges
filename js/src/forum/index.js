@@ -19,14 +19,15 @@ import BadgeReceivedNotification from './notification/BadgeReceivedNotification'
 import NotificationGrid from 'flarum/forum/components/NotificationGrid';
 import addBadgesToUserCard from './addBadgesToUserCard';
 import DiscussionListState from 'flarum/forum/states/DiscussionListState';
-import UserBadgesState from "./states/UserBadgesState";
+import UserBadgesState from './states/UserBadgesState';
 
 app.initializers.add('gtdxyz-flarum-badges', () => {
   app.store.models.badges = Badge;
   app.store.models.badgeCategories = BadgeCategory;
-  
+
+  UserBadge.prototype.badge = Model.hasOne('badge');
   app.store.models.userBadges = UserBadge;
-  // User.prototype.userBadges = Model.hasMany('userBadges');
+  User.prototype.userBadges = Model.hasMany('userBadges');
 
   // User.prototype.userPrimaryBadge = Model.hasOne('userPrimaryBadge');
 
@@ -114,7 +115,6 @@ app.initializers.add('gtdxyz-flarum-badges', () => {
   });
 
   addBadgesToUserCard();
-
 
   // For what???
   // extend(DiscussionListState.prototype, 'requestParams', function (params) {

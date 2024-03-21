@@ -39,7 +39,7 @@ export default class UserCardBadgeModal extends Modal {
           >
             {app.translator.trans('gtdxyz-flarum-badges.forum.badge.badge_details')}
           </LinkButton>
-          
+
           {/* remove button */}
           {this.badgeData && app.forum.attribute('canGiveBadge') && (
             <Button
@@ -47,7 +47,16 @@ export default class UserCardBadgeModal extends Modal {
               onclick={() => {
                 if (confirm(app.translator.trans('gtdxyz-flarum-badges.forum.moderation.remove_badge_confirm'))) {
                   this.loading = true;
-                  this.badgeData.delete().then(() => this.hide());
+                  const that = this;
+                  // this.badgeData.delete().then(() => this.hide());
+
+                  app.request({
+                    method: 'DELETE',
+                    url: app.forum.attribute('apiUrl') + '/user-badges/' + this.badgeData.id,
+                    body: {},
+                  }).then(() => {
+                    that.hide();
+                  });
                 }
               }}
               loading={this.loading}
@@ -71,11 +80,13 @@ export default class UserCardBadgeModal extends Modal {
       <div
         className={'BadgeModalListItem name'}
         style={{
-          background: "radial-gradient("+radials+","+radiale+")"
+          background: 'radial-gradient(' + radials + ',' + radiale + ')',
         }}
       >
-        {this.badgeItem.image && (
+        {this.badgeItem.image ? (
           <img src={this.badgeItem.image} className="icon" />
+        ) : (
+          <i className={this.badgeItem.icon} style={'color:'+this.badgeItem.icon_color}></i>
         )}
       </div>
     );
@@ -88,8 +99,6 @@ export default class UserCardBadgeModal extends Modal {
         <p>{this.badgeItem.description}</p>
       </div>
     );
-
-    
 
     // // Badge category
     // if (this.badgeItem) {

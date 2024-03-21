@@ -16,13 +16,14 @@ export default class BadgeReceivedNotification extends Notification {
   }
 
   excerpt() {
+
     const subject = this.attrs.notification.subject();
 
     return (
       <div>
-        <i className={`icon ${subject.badge().icon()}`} />
+        <i className={`icon ${subject.attribute('icon')}`} />
 
-        {subject.badge().name()}
+        {subject.attribute('name')}
       </div>
     );
   }

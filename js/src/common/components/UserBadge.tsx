@@ -29,7 +29,7 @@ export default class UserBadge extends Component {
     // This badge is an image
     if (this.attrs.badge.image()) {
       return (
-        <view style={this.displayName ? ("display:flex;justify-content:flex-start;align-items:center;") : ("display:inline-block;")}>
+        <span style={this.displayName ? 'display:flex;justify-content:flex-start;align-items:center;' : 'display:inline-block;'}>
           <img
             src={this.attrs.badge.image()}
             className={'UserBadgeImage'}
@@ -42,10 +42,8 @@ export default class UserBadge extends Component {
               opacity: isPartlyHidden ? 0.5 : undefined,
             }}
           />
-          {this.displayName && (
-            this.attrs.badge.name()
-          )}
-        </view>
+          {this.displayName && this.attrs.badge.name()}
+        </span>
       );
     }
 

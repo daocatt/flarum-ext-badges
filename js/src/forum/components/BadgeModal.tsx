@@ -68,12 +68,16 @@ export default class BadgeModal extends Modal {
       <div
         className={'BadgeModalListItem name'}
         style={{
-          background: "radial-gradient("+radials+","+radiale+")"
+          background: 'radial-gradient(' + radials + ',' + radiale + ')',
         }}
       >
-        {this.attrs.badge.image() && (
-          <img src={this.attrs.badge.image()} className="icon" />
+        
+        {this.attrs.badge.image()  ? (
+          <img src={this.attrs.badge.image() } className="icon" />
+        ) : (
+          <i className={this.attrs.badge.icon()} style={'color:'+this.attrs.badge.iconColor()}></i>
         )}
+
       </div>
     );
 
@@ -85,8 +89,6 @@ export default class BadgeModal extends Modal {
         <p>{this.attrs.badge.description()}</p>
       </div>
     );
-
-    
 
     // Badge category
     if (this.attrs.userBadgeData) {

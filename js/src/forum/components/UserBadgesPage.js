@@ -12,8 +12,6 @@ export default class UserBadgesPage extends UserPage {
 
     this.loadUser(m.route.param('username'));
     app.userBadges.load(m.route.param('username'));
-
-    
   }
 
   content() {
@@ -23,7 +21,7 @@ export default class UserBadgesPage extends UserPage {
 
     if (app.session.user) {
       return UserBadgesContent.component({
-        user: this.user
+        user: this.user,
       });
     } else {
       return (

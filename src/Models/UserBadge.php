@@ -12,6 +12,12 @@ class UserBadge extends AbstractModel
 
     protected $dates = ['assigned_at'];
 
+
+    protected $appends = [
+        'name',
+        'icon',
+    ];
+
     public static function build($userId, $badgeId, $description = null)
     {
         $userBadge = new static();
@@ -21,6 +27,14 @@ class UserBadge extends AbstractModel
         $userBadge->assigned_at = time();
 
         return $userBadge;
+    }
+
+    public function getNameAttribute(){
+        return $this->badge()->first()->name;
+    }
+
+    public function getIconAttribute(){
+        return $this->badge()->first()->icon;
     }
 
     /**

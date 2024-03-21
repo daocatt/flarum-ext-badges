@@ -52,9 +52,9 @@ export default class BadgeDetailPage extends Page {
               <ul>{listItems(IndexPage.prototype.sidebarItems().toArray())}</ul>
             </nav>
             <div className="IndexPage-results sideNavOffset">
-              {/* <LinkButton href={app.route('badges')} icon={'fas fa-chevron-left'} className={'Button BadgesOverviewButton'}>
+              <LinkButton href={app.route('badges')} icon={'fas fa-chevron-left'} className={'Button BadgesOverviewButton'}>
                 {app.translator.trans('gtdxyz-flarum-badges.forum.badge.badges')}
-              </LinkButton> */}
+              </LinkButton>
 
               {this.loading && <LoadingIndicator size={'large'} />}
 

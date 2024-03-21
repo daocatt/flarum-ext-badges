@@ -73,39 +73,10 @@ $extend = [
         ->relationship('userBadges', function ($user) {
             return $user->hasMany(Models\UserBadge::class, 'user_id');
         }),
-
-    //     ->relationship('userPrimaryBadge', function ($user) {
-    //         return $user->hasOne(Models\UserBadge::class, 'user_id', null)->where('is_primary', true);
-    //     }),
     
     (new Extend\ApiSerializer(UserSerializer::class))
         ->attributes(Attributes\BadgesAttributes::class),
 
-    // (new Extend\ApiSerializer(UserSerializer::class))
-    //     ->hasMany('userBadges', Api\Serializer\UserBadgeSerializer::class),
-    // //     ->hasOne('userPrimaryBadge', Api\Serializer\UserBadgeSerializer::class),
-
-    // (new Extend\ApiSerializer(BasicUserSerializer::class))
-    //     ->hasMany('userBadges', Api\Serializer\UserBadgeSerializer::class),
-
-    // (new Extend\ApiSerializer(CurrentUserSerializer::class))
-    //     ->hasMany('userBadges', Api\Serializer\UserBadgeSerializer::class),
-
-    
-    // (new Extend\ApiController(FlarumController\ListUsersController::class))
-    //     ->addInclude(['userBadges', 'userBadges.badge']),
-
-    // (new Extend\ApiController(FlarumController\ShowUserController::class))
-    //     ->addInclude(['userBadges', 'userBadges.badge', 'userBadges.badge.category']),
-
-    // (new Extend\ApiController(FlarumController\UpdateUserController::class))
-    //     ->addInclude(['userBadges', 'userBadges.badge', 'userBadges.badge.category']),
-
-    // (new Extend\ApiController(FlarumController\CreateUserController::class))
-    //     ->addInclude(['usfosts.user.userBadges', 'posts.user.userBadges.badge']),
-
-    // (new Extend\ApiController(FlarumController\ListDiscussionsController::class))
-    //     ->addInclude(['user.userBadges', 'user.userBadges.badge']),
 
     (new Extend\Filter(\Gtdxyz\Badges\UserBadge\Filter\UserBadgeFilterer::class))
         ->addFilter(\Gtdxyz\Badges\UserBadge\Filter\UserFilter::class)
@@ -122,17 +93,5 @@ $extend = [
         ->serializeToForum('numberOfBadgesOnUserCard', 'gtdxyz-badges.number_of_badges_on_user_card', 'intval')
         ->default('gtdxyz-badges.number_of_badges_on_user_card', 3),
 ];
-
-/**
- * Initialize Auto Moderator functionalities when installed
- */
-// if (class_exists("Askvortsov\AutoModerator\Extend\AutoModerator")) {
-//     $extend[] =
-//         (new Askvortsov\AutoModerator\Extend\AutoModerator())
-//         ->actionDriver('give_badge', AutoModerator\Action\GiveBadge::class)
-//         ->actionDriver('remove_badge', AutoModerator\Action\RemoveBadge::class)
-//         ->requirementDriver('has_badge', AutoModerator\Requirement\HasBadge::class)
-//         ->metricDriver('badges_received', AutoModerator\Metric\BadgesReceived::class);
-// }
 
 return $extend;

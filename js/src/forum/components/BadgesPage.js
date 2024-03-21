@@ -44,20 +44,19 @@ export default class BadgesPage extends Page {
               {!this.loading &&
                 categories.map((category) => {
                   const badges = category.badges().sort((a, b) => a.order() - b.order());
-                  if(badges.length > 0){
+                  if (badges.length > 0) {
                     return (
                       <div className={'BadgeCategory'}>
                         <h3>{category.name()}</h3>
                         {category.description() && <p>{category.description()}</p>}
-  
+
                         {category.isTable() && <TableView badges={badges} />}
-  
+
                         {!category.isTable() && <BlockListView badges={badges} />}
                       </div>
                     );
                   }
-                })
-              }
+                })}
             </div>
           </div>
         </div>

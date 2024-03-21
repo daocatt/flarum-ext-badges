@@ -27,7 +27,7 @@ class UserBadgeRepository
      */
     public function findOrFail($id)
     {
-        return UserBadge::where('id', $id)->findOrFail();
+        return UserBadge::where('id', $id)->with('badge')->findOrFail();
     }
 
     /**
@@ -39,7 +39,7 @@ class UserBadgeRepository
      */
     public function all(User $user = null)
     {
-        return UserBadge::query()->get();
+        return UserBadge::query()->with('badge')->get();
     }
 
     /**

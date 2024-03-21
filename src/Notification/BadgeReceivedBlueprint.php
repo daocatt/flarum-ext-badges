@@ -4,6 +4,7 @@ namespace Gtdxyz\Badges\Notification;
 
 use Flarum\Notification\Blueprint\BlueprintInterface;
 use Gtdxyz\Badges\Models\UserBadge;
+use Gtdxyz\Badges\Models\Badge;
 
 class BadgeReceivedBlueprint implements BlueprintInterface
 {

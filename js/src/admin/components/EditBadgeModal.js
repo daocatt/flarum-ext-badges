@@ -146,8 +146,6 @@ export default class EditBadgeModal extends Modal {
         50
       );
 
-      
-
       items.add(
         'label_color',
         <div className="Form-group BadgeForm-split BadgeForm-ColorField">
@@ -166,7 +164,7 @@ export default class EditBadgeModal extends Modal {
 
     items.add(
       'background_color',
-      <div className={!this.isImage() ? ("Form-group BadgeForm-ColorField BadgeForm-split") : ("Form-group BadgeForm-ColorField")}>
+      <div className={!this.isImage() ? 'Form-group BadgeForm-ColorField BadgeForm-split' : 'Form-group BadgeForm-ColorField'}>
         <label>{app.translator.trans('gtdxyz-flarum-badges.admin.badge.background_color')}:</label>
         <input className="FormControl" bidi={this.backgroundColor} placeholder="auto" />
         <span

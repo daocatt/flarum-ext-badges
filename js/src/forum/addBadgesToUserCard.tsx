@@ -7,11 +7,8 @@ import UserCardBadgeModal from './components/UserCardBadgeModal';
 import SelectUserCardBadgesModal from './components/SelectUserCardBadgesModal';
 import Tooltip from 'flarum/common/components/Tooltip';
 
-
 export default function addBadgesToUserCard() {
-  
   extend(UserCard.prototype, 'infoItems', function (items) {
-    
     // Get user
     const user = this.attrs.user;
 
@@ -25,9 +22,11 @@ export default function addBadgesToUserCard() {
     if (user.attribute('badges_count') <= 0) return;
 
     const limit = app.forum.attribute('numberOfBadgesOnUserCard');
+    
+    const badges = [];
 
-    const badges = visibleBadges.map((badgeItem) => {
-      return (
+    visibleBadges.forEach((badgeItem, indx) => {
+      badges.push(
         <UserCardBadge
           badge={badgeItem.badge}
           onclick={() =>
@@ -41,7 +40,7 @@ export default function addBadgesToUserCard() {
     });
 
     // Manage badges
-    if ((user === app.session.user && app.forum.attribute('editOwnUserCardBadges')) || app.forum.attribute('editUserCardBadges')) {
+    if ((user.id() === app.session.user.id() && app.forum.attribute('editOwnUserCardBadges')) || app.forum.attribute('editUserCardBadges')) {
       badges.push(
         <Tooltip text={app.translator.trans('gtdxyz-flarum-badges.forum.badges_in_card.manage_badges')}>
           <a
@@ -57,7 +56,8 @@ export default function addBadgesToUserCard() {
         </Tooltip>
       );
     }
-    
+
     items.add('badges', badges);
+    
   });
 }

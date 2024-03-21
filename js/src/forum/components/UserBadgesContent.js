@@ -6,7 +6,7 @@ import BadgeModal from './BadgeModal';
 export default class UserBadgesContent extends Component {
   view() {
     const badgesList = app.userBadges.cache || [];
-    
+
     const categories = categorizeUserBadges(badgesList);
 
     return (
@@ -26,7 +26,7 @@ export default class UserBadgesContent extends Component {
                 <h3>{name}</h3>
 
                 {category && category.description() && <p>{category.description()}</p>}
-
+                <div className="badgeList">
                 {badges
                   .sort((a, b) => a.badge().order() - b.badge().order())
                   .map((userBadge) => (
@@ -40,6 +40,7 @@ export default class UserBadgesContent extends Component {
                       }
                     />
                   ))}
+                  </div>
               </div>
             );
           })}

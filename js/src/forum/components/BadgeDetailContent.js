@@ -8,7 +8,7 @@ import humanTime from 'flarum/helpers/humanTime';
 export default class BadgeDetailContent extends Component {
   oninit(vnode) {
     super.oninit(vnode);
-    
+
     // Load articles
     this.attrs.state.refreshParams({
       filter: {

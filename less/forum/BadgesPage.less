@@ -27,7 +27,7 @@
   background: @control-bg;
   border-radius: @border-radius;
   padding: 20px;
-
+  text-align:center;
   
 
   &:hover {
@@ -37,10 +37,15 @@
   .UserBadge {
     background: @body-bg;
     border: 0;
+    border-radius:20px;
   }
 
   .BadgeContainerInfo {
     overflow: hidden;
+
+    .UserBadgeImage{
+      margin:0;
+    }
 
     .BadgeDescription {
       white-space: nowrap;
@@ -54,6 +59,7 @@
     p {
       font-size: 12px;
       text-align:center;
+      margin:0;
     }
   }
 }
@@ -93,7 +99,7 @@
 
 @media (max-width: 767.98px){
   .BadgeContainer {
-    padding: 5px;
+    padding: 15px 5px;
   }
 
   .BadgeCategory {

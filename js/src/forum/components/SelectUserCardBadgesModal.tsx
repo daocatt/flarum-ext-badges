@@ -6,7 +6,6 @@ import Tooltip from 'flarum/common/components/Tooltip';
 
 import UserBadge from '../../common/components/UserBadge';
 
-
 export default class SelectUserCardBadgesModal extends Modal {
   oninit(vnode) {
     super.oninit(vnode);
@@ -16,13 +15,12 @@ export default class SelectUserCardBadgesModal extends Modal {
     this.limit = app.forum.attribute('numberOfBadgesOnUserCard');
     // this.selectedBadges = this.attrs.user.attribute('badges');
 
-    
-    this.selectedBadges = this.attrs.user.attribute('badges')
-      .filter((item) => item.in_uer_card!=0)
+    this.selectedBadges = this.attrs.user
+      .attribute('badges')
+      .filter((item) => item.in_uer_card != 0)
       .map((item) => item.id);
 
     app.userBadges.load(this.attrs.user.attribute('username'));
-    
   }
 
   className() {
@@ -66,18 +64,17 @@ export default class SelectUserCardBadgesModal extends Modal {
     );
 
     // Loop through all badge categories
-    
+
     items.add(
       'badge-list',
       <div className={'UserCardBadgesModalCategory'}>
-
         {/* Loop through the badges */}
         {badgesList
           // .sort((a, b) => a.badge().order - b.badge().order)
           .map((ubItem) => {
             const ubItemId = parseInt(ubItem.id());
             const disabled = this.selectedBadges.length >= this.limit && this.selectedBadges.indexOf(ubItemId) === -1;
-            
+
             return (
               <Tooltip
                 text={
@@ -109,23 +106,21 @@ export default class SelectUserCardBadgesModal extends Modal {
                 >
                   <div className={'UserCardBadgesModalCategory-badge-preview'}>
                     <UserBadge badge={ubItem.badge()} onclick={() => {}} />
-                    <div className="preview-name">{ubItem.badge().name()}</div>
+                    {ubItem.badge().image() && <div className="preview-name">{ubItem.badge().name()}</div>}
                   </div>
-                  
+
                   <div className={'UserCardBadgesModalCategory-badge-switch'}>
                     {Switch.component({
                       state: this.selectedBadges.indexOf(ubItemId) >= 0,
                       disabled,
                     })}
                   </div>
-
                 </div>
               </Tooltip>
             );
           })}
       </div>
     );
-    
 
     return items;
   }
@@ -138,15 +133,10 @@ export default class SelectUserCardBadgesModal extends Modal {
       .then(() => {
         // Update current user badges store
         
-        this.attrs.user.attribute('badges').map((badgeItem) => {
-          
-          badgeItem.in_user_card = this.selectedBadges.indexOf(parseInt(badgeItem.id)) >= 0;
-          // badgeItem.pushAttributes({
-          //   in_user_card: this.selectedBadges.indexOf(parseInt(badgeItem.id)) >= 0,
-          // });
-          
-        });
-        
+        // this.attrs.user.attribute('badges').map((badgeItem) => {
+        //   badgeItem.in_user_card = this.selectedBadges.indexOf(parseInt(badgeItem.id)) >= 0;
+        // });
+
         this.hide();
       })
       .catch(() => {})
