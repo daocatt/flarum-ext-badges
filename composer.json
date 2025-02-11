@@ -10,12 +10,12 @@
         },
         {
             "name": "DEV",
-            "email": "me@zaowan.xyz"
+            "email": "me@zwq.me"
         }
     ],
-    "homepage": "https://zaowan.xyz",
+    "homepage": "https://zwq.me",
     "support": {
-        "forum": "https://zaowan.xyz",
+        "forum": "https://zwq.me",
         "source": "https://github.com/daocatt/flarum-ext-badges"
     },
     "autoload": {
